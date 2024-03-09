@@ -1,7 +1,7 @@
-import React from "react"
-import ReactDOM from 'react-dom/client';
-import {App} from './App.jsx'
-import './index.css';
+//import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
 import { FronteggProvider } from '@frontegg/react';
 
 const contextOptions = {
@@ -10,18 +10,16 @@ const contextOptions = {
 };
 
 const authOptions = {
- keepSessionAlive: true // Uncomment this in order to maintain the session alive
-};
+  keepSessionAlive: true // Uncomment this in order to maintain the session alive
+ };
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <FronteggProvider 
-    contextOptions={contextOptions} 
-    hostedLoginBox={true}
-    authOptions={authOptions}>
-        <App />
-    </FronteggProvider>
-  </React.StrictMode>, 
-    
-);
-
+ const root = ReactDOM.createRoot(document.getElementById('root')!);
+ root.render(
+     <FronteggProvider 
+     contextOptions={contextOptions} 
+     hostedLoginBox={true}
+     authOptions={authOptions}>
+         <App />
+     </FronteggProvider>,
+     //document.getElementById('root')  //there is no need to call twice a same argument.
+ );
